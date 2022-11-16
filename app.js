@@ -5,7 +5,12 @@ const mongoose = require('mongoose')
 const {MONGOURI} = require('./keys')
 //G5XuknS5LiWICamV
 
-mongoose.connect(MONGOURI)
+
+require('./models/user')
+mongoose.connect(MONGOURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology:true
+})
 
 mongoose.connection.on('connected',()=>{
     console.log('Connected to mongo')
