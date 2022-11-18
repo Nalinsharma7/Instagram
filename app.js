@@ -7,9 +7,9 @@ const {MONGOURI} = require('./keys')
 
 
 require('./models/user')
+require('./models/post')
 
-app.use(express.json())
-app.use(require('./routes/auth'))
+
 
 
 mongoose.connect(MONGOURI, {
@@ -23,6 +23,10 @@ mongoose.connection.on('connected',()=>{
 mongoose.connection.on('error',(err)=>{
     console.log('Error in connecting to mongo',err)
 })
+
+app.use(express.json())
+app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
 
 const customMiddleware = (req,res,next)=>{
     console.log("Middleware Fired!!")
