@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Freehand&display=swap');
+
+a{
+  color: black !important;
+}
+
+.brand-logo,h2{
+  font-family: 'Freehand', cursive;
+}
+
+.auth-card{
+  padding: 20px;
+  text-align: center;
+  max-width:700px ;
+  margin: 100px auto;
+  /* height: 250px; */
+}
+
+.mycard{
+  margin-top: 30px;
+}
+
+     /* label underline focus color */
+     .input-field input[type=text]:focus {
+       border-bottom: 1px solid rgb(25, 5, 253) !important;
+       box-shadow: 0 1px 0 0 rgb(25, 5, 253) !important;
+     }
