@@ -25,3 +25,13 @@ a{
        border-bottom: 1px solid rgb(25, 5, 253) !important;
        box-shadow: 0 1px 0 0 rgb(25, 5, 253) !important;
      }
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item{
+  width: 30%;
+}
