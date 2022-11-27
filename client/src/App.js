@@ -9,22 +9,23 @@ import Profile from './components/screens/Profile'
 import CreatePost from './components/screens/CreatePost'
 import { reducer, initialState } from './reducers/userReducers';
 
+import createBrowserHistory from 'history/createBrowserHistory';
+
 export const UserContext = createContext()
 
 const Routing=()=>{
-  const history = useHistory()
+  const history = createBrowserHistory()
   const {state,dispatch} = useContext(UserContext)
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem("user"))
     if(user){
       dispatch({type:"USER",payload:user})
-      history.push('/')
-      document.location.reload()
     }else{
-      history.push('/signin')
-      document.location.reload()
+      if(!history.location.pathname.startsWith('/reset'))
+           history.push('/signin')
     }
-  },[])
+  }, [])
+  
 
   return(
     <Switch>

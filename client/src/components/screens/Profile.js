@@ -1,6 +1,17 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 
 function Profile() {
+  const [mypics,SetPics] = useState([])
+  useEffect(() => {
+    fetch('/mypost', {
+      headers: {
+        "Authorization":"Bearer "+localStorage.getItem("jwt")
+      }
+    }).then(res => res.json())
+      .then(result => {
+        SetPics(result.mypost)
+      })
+  },[])
   return (
     <div style={{maxWidth:"550px",margin:"0 auto"}}>
       <div style={{
@@ -28,12 +39,15 @@ function Profile() {
       </div>
 
       <div className="gallery">  
-        <img className="item" src="https://images.unsplash.com/photo-1637058267061-1115f6418518?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uJTIwaW1hZ2V8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"/>
-        <img className="item" src="https://images.unsplash.com/photo-1637058267061-1115f6418518?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uJTIwaW1hZ2V8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"/>
-        <img className="item" src="https://images.unsplash.com/photo-1637058267061-1115f6418518?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uJTIwaW1hZ2V8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"/>
-        <img className="item" src="https://images.unsplash.com/photo-1637058267061-1115f6418518?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uJTIwaW1hZ2V8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"/>
-        <img className="item" src="https://images.unsplash.com/photo-1637058267061-1115f6418518?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uJTIwaW1hZ2V8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"/>
-        <img className="item" src="https://images.unsplash.com/photo-1637058267061-1115f6418518?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29uJTIwaW1hZ2V8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"/>
+        {
+          mypics.map(item => {
+            return (
+              <img className="item" key={item._id} src={ item.photo} alt={item.title} />      
+            )
+          })
+        }
+        
+        
       </div>
     </div>
   )
