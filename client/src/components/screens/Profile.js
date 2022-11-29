@@ -1,7 +1,9 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useContext} from 'react'
+import {UserContext} from '../../App'
 
 function Profile() {
   const [mypics,SetPics] = useState([])
+  const {state,dispatch} = useContext(UserContext)
   useEffect(() => {
     fetch('/mypost', {
       headers: {
@@ -26,7 +28,7 @@ function Profile() {
           />
         </div>
         <div>
-          <h4>Nalin Sharma</h4>
+          <h4>{state?state.name:"Loading..."}</h4>
           <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
             <h6>17 Posts</h6>
             <h6>98 Followers</h6>

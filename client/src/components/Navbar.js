@@ -26,8 +26,8 @@ const NavBar = () => {
             ]
         }else {
             return [
-                <li><Link onClick={() => {window.location.href="/profile"}}>Profile</Link></li>,
-                <li><Link onClick={() => {window.location.href="/create"}}>Create Post</Link></li>,
+                // <li><Link onClick={() => {window.location.href="/profile"}}>Profile</Link></li>,
+                // <li><Link onClick={() => {window.location.href="/create"}}>Create Post</Link></li>,
                 <li><Link onClick={() => {window.location.href="/signin"}}>SignIn</Link></li>,
                 <li><Link onClick={() => { window.location.href = "/signup" }}>SignUp</Link></li>,
                 <li>
