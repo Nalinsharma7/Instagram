@@ -14,6 +14,55 @@ function Home() {
        })
   },[])
 
+  const likePost = (id)=>{
+    fetch('/like',{
+      method:"put",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"Bearer " + localStorage.getItem("jwt")
+      },
+      body:JSON.stringify({
+        postId:id
+      })
+    }).then(res=>res.json())
+    .then(result=>{
+      // console.log("unlike",result)
+      const newData = data.map(item=>{
+        if(item._id==result._id){
+           return result 
+        }else{
+          return item
+        }
+      })
+      setData(newData)
+    })
+  }
+
+  const unlikePost = (id)=>{
+    fetch('/unlike',{
+      method:"put",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"Bearer " + localStorage.getItem("jwt")
+      },
+      body:JSON.stringify({
+        postId:id
+      })
+    }).then(res=>res.json())
+      .then(result=>{
+        // console.log("unlike",result)
+        const newData = data.map(item=>{
+          if(item._id==result._id){
+             return result 
+          }else{
+            return item
+          }
+        })
+        setData(newData)
+      })
+  }
+  
+
 
   return (
     <div className="home">
@@ -27,6 +76,13 @@ function Home() {
         </div>
         <div className="card-content">
         <i className="material-icons">favorite</i>
+        <i className="material-icons"
+         onClick={()=>{likePost(item._id)}}
+        >thumb_up</i>
+        <i className="material-icons"
+          onClick={()=>{unlikePost(item._id)}}
+        >thumb_down</i>
+                <h6>{item.like.length } Likes</h6> 
                 <h6>{item.title }</h6> 
                 <p>{ item.body}</p>
           <input type="text" placeholder="Add comment"/>

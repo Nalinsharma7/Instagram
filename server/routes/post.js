@@ -48,5 +48,32 @@ router.get('/myposts',requireLogin, (req, res) => {
     })
 })
 
+router.put('/like',requireLogin,(req,res)=>{
+    Post.findByIdAndUpdate(req.body.postId,{
+        $push:{like:req.user._id} // Inserts in the like array
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
+
+router.put('/unlike',requireLogin,(req,res)=>{
+    Post.findByIdAndUpdate(req.body.postId,{
+        $pull:{like:req.user._id}
+    },{
+        new:true
+    }).exec((err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
 
 module.exports = router
