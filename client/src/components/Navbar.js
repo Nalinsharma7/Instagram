@@ -18,7 +18,7 @@ const NavBar = () => {
                             localStorage.clear()
                             dispatch({ type: "CLEAR" })
                             history.push('/signin')
-                            document.windows.reload()
+                            document.location.reload()
                     }}>
                         LOGOUT
                     </button>
@@ -26,21 +26,10 @@ const NavBar = () => {
             ]
         }else {
             return [
-                // <li><Link onClick={() => {window.location.href="/profile"}}>Profile</Link></li>,
-                // <li><Link onClick={() => {window.location.href="/create"}}>Create Post</Link></li>,
+                
                 <li><Link onClick={() => {window.location.href="/signin"}}>SignIn</Link></li>,
                 <li><Link onClick={() => { window.location.href = "/signup" }}>SignUp</Link></li>,
-                <li>
-                    <button className="btn #c62828 red darken-3"
-                        onClick={() => {
-                            localStorage.clear()
-                            dispatch({ type: "CLEAR" })
-                            history.push('/signin')
-                            document.windows.reload()
-                    }}>
-                        LOGOUT
-                    </button>
-                </li>
+                
             ]
         }
     }
