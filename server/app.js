@@ -27,6 +27,7 @@ mongoose.connection.on('error',(err)=>{
 app.use(express.json())
 app.use(require('./routes/auth'))
 app.use(require('./routes/post'))
+app.use(require('./routes/user'))
 
 const customMiddleware = (req,res,next)=>{
     console.log("Middleware Fired!!")

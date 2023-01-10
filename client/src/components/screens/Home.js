@@ -1,5 +1,6 @@
 import React,{useState, useEffect, useContext} from 'react'
 import {UserContext} from '../../App'
+import { Link } from 'react-router-dom'
 
 
 function Home() {
@@ -121,7 +122,7 @@ function Home() {
         data.map(item => {
           return (
             <div className="card home-card" key={item._id}>
-              <h5>{item.postedBy.name}  {item.postedBy._id == state.state._id &&<i className="material-icons" style={{
+              <h5><Link to={item.postedBy._id !== state.state._id?"/profile/"+item.postedBy._id : "/profile/"}>{item.postedBy.name} </Link> {item.postedBy._id == state.state._id &&<i className="material-icons" style={{
                 float:"right"
               }}
               onClick={()=>deletePost(item._id)}
