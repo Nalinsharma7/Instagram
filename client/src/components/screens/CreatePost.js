@@ -89,6 +89,7 @@ function CreatePost() {
             <input className="file-path validate" type="text"/>
         </div>
         </div>
+        
         <button className="btn waves-effect waves-light #1976d2 blue darken-2"
           onClick={()=>postDetails()}
         >

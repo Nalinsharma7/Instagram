@@ -13,7 +13,7 @@ router.get('/protected',requireLogin,(req,res)=>{
 })
 
 router.post('/signup', (req, res) => {
-    const { name, email, password } = req.body
+    const { name, email, password, pic } = req.body
     if (!name || !email || !password) {
         return res.status(422).json({error:"Please fill all the fields"}) //Status 422 means the code is working fine but the error comes because inputs given are wrong 
     }
@@ -31,7 +31,8 @@ router.post('/signup', (req, res) => {
                 const user = new User({
                     email,
                     password:hashedpassword,
-                    name
+                    name,
+                    pic
                 })
     
                 user.save()
@@ -65,8 +66,8 @@ router.post('/signin',(req,res)=>{
             if(doMatch){
                 // res.json({message:"Successfully signed In"})
                 const token = jwt.sign({_id:SavedUser._id},JWT_SECRET)
-                const {_id,name,email} = SavedUser
-                res.json({token,user:{_id,name,email}})
+                const {_id,name,email,followers,following,pic} = SavedUser
+                res.json({token,user:{_id,name,email,followers,following,pic}})
              }
              else{
                 return res.status(422).json({error:"Invalid Email || password"})

@@ -28,11 +28,12 @@ function Profile() {
           />
         </div>
         <div>
-          <h4>{state?state.name:"Loading..."}</h4>
+          {console.log(state)}
+          <h4>{state?state.state.name:"Loading..."}</h4>
           <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
             <h6>{mypics.length} Posts</h6>
-            <h6>98 Followers</h6>
-            <h6>105 Following</h6>
+            <h6>{state?state.state.followers.length:"0"} followers</h6>
+            <h6>{state?state.state.following.length:"0"} following</h6>
           </div>
         </div>
       

@@ -127,7 +127,7 @@ let url = ''
             <div className="card home-card" key={item._id}>
               
               {/* <h5><Link to={item.postedBy._id !== state.state._id?"/profile/"+item.postedBy._id : "/profile/"}  >{item.postedBy.name } </Link> {item.postedBy._id == state.state._id &&<i className="material-icons" style={{ */}
-              <h5 onClick={(e)=>{e.preventDefault() 
+              <h5 style={{padding:"5px"}} onClick={(e)=>{e.preventDefault() 
               console.log(item)
               window.location.assign(item.postedBy._id !== state.state._id?"/profile/"+item.postedBy._id : "/profile/")}}>  {item.postedBy.name }  {item.postedBy._id == state.state._id &&<i className="material-icons" style={{
                 float:"right"

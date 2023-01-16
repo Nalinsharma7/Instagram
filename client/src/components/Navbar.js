@@ -12,6 +12,7 @@ const NavBar = () => {
             return [
                 <li><Link onClick={() => {window.location.href="/profile"}}>Profile</Link></li>,
                 <li><Link onClick={() => {window.location.href="/create"}}>Create Post</Link></li>,
+                <li><Link onClick={() => {window.location.href="/myfollowingpost"}}>My following Post</Link></li>,
                 <li>
                     <button className="btn #c62828 red darken-3"
                         onClick={() => {

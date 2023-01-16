@@ -9,6 +9,7 @@ import Profile from './components/screens/Profile'
 import CreatePost from './components/screens/CreatePost'
 import UserProfile from './components/screens/UserProfile'
 import { reducer, initialState } from './reducers/userReducers';
+import SubscribedUserPost from './components/screens/SubscribesUserPosts'
 
 import createBrowserHistory from 'history/createBrowserHistory';
 
@@ -47,6 +48,9 @@ const Routing=()=>{
   </Route>
   <Route path="/profile/:userid">
     <UserProfile />
+  </Route>
+  <Route path="/myfollowingpost">
+    <SubscribedUserPost />
   </Route>
   </Switch>
   )
