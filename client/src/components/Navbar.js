@@ -7,7 +7,7 @@ const NavBar = () => {
     const history = useHistory()
     const {state,dispatch} = useContext(UserContext)
     const RenderList = () => {
-        console.log(state)
+        // console.log(state)
         if(state) {
             return [
                 <li><Link onClick={() => {window.location.href="/profile"}}>Profile</Link></li>,

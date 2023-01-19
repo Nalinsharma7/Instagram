@@ -13,7 +13,7 @@ function Home() {
       }
     }).then(res => res.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
         setData(result.posts)
        })
   },[])
@@ -83,7 +83,7 @@ function Home() {
       })
     }).then(res => res.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
         const newData = data.map(item=>{
           if(item._id==result._id){
              return result 
@@ -106,7 +106,7 @@ function Home() {
       }
     }).then(res => res.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
         const newData = data.filter(item => {
           return item._id !== result._id
         })
@@ -128,7 +128,7 @@ function Home() {
               
               {/* <h5><Link to={item.postedBy._id !== state.state._id?"/profile/"+item.postedBy._id : "/profile/"}  >{item.postedBy.name } </Link> {item.postedBy._id == state.state._id &&<i className="material-icons" style={{ */}
               <h5 style={{padding:"5px"}} onClick={(e)=>{e.preventDefault() 
-              console.log(item)
+              // console.log(item)
               window.location.assign(item.postedBy._id !== state.state._id?"/profile/"+item.postedBy._id : "/profile/")}}>  {item.postedBy.name }  {item.postedBy._id == state.state._id &&<i className="material-icons" style={{
                 float:"right"
               }}

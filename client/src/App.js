@@ -1,7 +1,7 @@
 import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import NavBar from './components/Navbar';
 import "./App.css"
-import {BrowserRouter,Route,Switch, useHistory} from 'react-router-dom'
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import Home from './components/screens/Home';
 import Signin from './components/screens/Signin'
 import Signup from './components/screens/Signup'
@@ -10,6 +10,8 @@ import CreatePost from './components/screens/CreatePost'
 import UserProfile from './components/screens/UserProfile'
 import { reducer, initialState } from './reducers/userReducers';
 import SubscribedUserPost from './components/screens/SubscribesUserPosts'
+import Reset  from './components/screens/reset';
+import NewPassword from './components/screens/Newpassword'
 
 import createBrowserHistory from 'history/createBrowserHistory';
 
@@ -52,6 +54,12 @@ const Routing=()=>{
   <Route path="/myfollowingpost">
     <SubscribedUserPost />
   </Route>
+  <Route exact path="/reset">
+    <Reset />
+  </Route>
+  <Route path="/reset/:token">
+    <NewPassword />
+  </Route>
   </Switch>
   )
 }
@@ -70,3 +78,8 @@ function App() {
 }
 
 export default App;
+
+
+// Send grid API Key
+
+//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

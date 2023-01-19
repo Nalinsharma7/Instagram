@@ -54,6 +54,7 @@ router.get('/mypost',requireLogin,(req,res)=>{
     .populate("PostedBy","_id name")
     .then(mypost=>{
         res.json({mypost})
+        console.log(res.json({mypost}))
     })
     .catch(err=>{
         console.log(err)

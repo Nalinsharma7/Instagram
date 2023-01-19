@@ -16,7 +16,7 @@ function Profile() {
       }
     }).then(res => res.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
         SetProfile(result)
       })
   },[userid])
@@ -34,7 +34,7 @@ function Profile() {
       })
     }).then(res=>res.json())
     .then(data=>{
-      console.log(data)
+      // console.log(data)
       dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
       localStorage.setItem("user",JSON.stringify(data))
       SetProfile((prevState)=>{
@@ -61,7 +61,7 @@ function Profile() {
       })
     }).then(res=>res.json())
     .then(data=>{
-      console.log(data)
+      // console.log(data)
       dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
       localStorage.setItem("user",JSON.stringify(data))
       SetProfile((prevState)=>{

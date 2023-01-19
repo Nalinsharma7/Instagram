@@ -83,7 +83,7 @@ function Home() {
       })
     }).then(res => res.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
         const newData = data.map(item=>{
           if(item._id==result._id){
              return result 
@@ -106,7 +106,7 @@ function Home() {
       }
     }).then(res => res.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
         const newData = data.filter(item => {
           return item._id !== result._id
         })
@@ -120,7 +120,9 @@ let url = ''
     <div className="home">
       
       {
+        
         data.map(item => {
+          {console.log(item.postedBy.name)}
           return (
             <>
           {/* {url =  item.postedBy._id !== state.state._id?"/profile/"+item.postedBy._id : "/profile/"} */}
